@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {SettingsModule} from '../settings/settings.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent
+    AppComponent, HeaderComponent, FooterComponent
   ],
   imports: [
     BrowserModule, SettingsModule
