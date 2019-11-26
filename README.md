@@ -43,3 +43,9 @@ Angular course given in Nov 2019 by Yariv Katz
 ### Login EX.
 
 - https://www.youtube.com/watch?v=8BtdI3-ateM
+
+- https://academeez-login-ex.herokuapp.com/
+- /api/users/login
+- /api/users/register
+- /api/tasks 
+- Headers: {Authorization: Bearer <token>}

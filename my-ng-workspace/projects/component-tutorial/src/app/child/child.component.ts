@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service';
 
 @Component({
     selector: 'app-child',
@@ -40,8 +41,28 @@ import { Component, OnInit } from '@angular/core';
 
     <input [(ngModel)]="twoWayBindingExample" />
 
-    
+    <h1>Common directives</h1>
 
+    <h2>*ngIf</h2>
+
+    <p *ngIf="stamBoolean" >
+    Hello everyone!
+    </p>
+    <button (click)="stamBoolean = !stamBoolean">toggle p</button>
+
+    <h2>*ngFor</h2>
+
+    <ul>
+        <li *ngFor="let todoItem of todo" >
+            {{todoItem}}
+        </li>
+    </ul>
+
+    <ul>
+        <li *ngFor="let todoItem of todo2" >
+            {{todoItem.title}}
+        </li>
+    </ul>
   `,
     styleUrls: ['./child.component.css']
 })
@@ -52,12 +73,26 @@ export class ChildComponent implements OnInit {
 
     twoWayBindingExample = 'hello';
 
-    constructor() { }
+    stamBoolean = true;
+
+    todo = [
+        'Walk with Piglet & Sweetness',
+        'buy tofu',
+        'buy saten'
+    ]
+
+    todo2 = [];
+
+    constructor(private _todoService: TodoService) { }
 
     ngOnInit() {
         setTimeout(() => {
             this.name = 'foo bar';
         }, 2000);
+
+        this._todoService.getTodos().then((todoItems) => {
+            this.todo2 = todoItems;
+        })
     }
 
     sayHello = () => {
