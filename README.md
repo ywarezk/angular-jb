@@ -40,3 +40,6 @@ Angular course given in Nov 2019 by Yariv Katz
 - Angular Dependency Injection: https://www.youtube.com/watch?v=CQIAjrfLnQQ
 - RXJS: https://www.youtube.com/watch?v=G6vd7gTNhQs&feature=youtu.be
 
+### Login EX.
+
+- https://www.youtube.com/watch?v=8BtdI3-ateM
