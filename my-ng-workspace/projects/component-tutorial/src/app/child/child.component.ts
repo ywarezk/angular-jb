@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, Input, Output, EventEmitter, OnDestroy , ContentChild} from '@angular/core';
 import { TodoService } from '../todo.service';
 
 @Component({
+    // exportAs: 'helloWorld',
     selector: 'app-child',
     template: `
     <h1>property binding</h1>
@@ -41,6 +42,29 @@ import { TodoService } from '../todo.service';
 
     <input [(ngModel)]="twoWayBindingExample" />
 
+    <h1>
+        Communication between components
+    </h1>
+
+    <button (click)="passToParent()">
+        click to pass to parent
+    </button>
+
+    <h1>
+        Template Reference Variable
+    </h1>
+
+    <!-- const pVar = document.getElementBy()  -->
+    <p #pVar >
+        hello world
+    </p>
+
+    <p>
+        {{ pVar.innerText }}
+    </p>
+
+    <input #whatWillIGe="ngModel" type="text" [(ngModel)]="templateRefExample" />
+
     <h1>Common directives</h1>
 
     <h2>*ngIf</h2>
@@ -63,13 +87,67 @@ import { TodoService } from '../todo.service';
             {{todoItem.title}}
         </li>
     </ul>
+
+    <h2>
+    Pipes
+    </h2>
+
+    <p>
+        <!-- {{ data | pipeName:arg1:arg2:arg3}} -->
+        {{myObj | json}}
+    </p>
+
+    <p>
+        {{myDate | date:'dd/MM/yyyy'}}
+    </p>
+
+    <p>
+        {{name | rollerCoster:34:'hello' }}
+    </p>
+
+    <h2>
+        Components have a lifecycle
+    </h2>
+
+    <p>
+
+    </p>
+
+    <h2>ng content</h2>
+
+    <!-- this takes the template the parent send to the child in the tags -->
+    <ng-content></ng-content>
+
   `,
     styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit /*, DoCheck*/ {
+    
+    @ContentChild('thisIsChildFromParent', {static: true})
+    fromParent : ChildComponent;
+
     // static me = 'Yariv';
+    @Output()
+    buttonClicked: EventEmitter<string> = new EventEmitter();
+
+    @Input()
+    myJwt: string;
+
+    @Input('msgThatWillBeDisplayedInHeader')
+    message: string
+
+    @Input('whenChanged')
+    set thisWillJumpWhenUpdated(newValue) {
+        this._updatedString = newValue;
+    }
+
+    const p : HTMLParagraphElement
+
+    private _updatedString;
 
     name = 'Yariv Katz'
+
+    myDate : Date = new Date();
 
     twoWayBindingExample = 'hello';
 
@@ -83,6 +161,11 @@ export class ChildComponent implements OnInit {
 
     todo2 = [];
 
+    myObj = {
+        name: 'yariv',
+        age: 34
+    }
+
     constructor(private _todoService: TodoService) { }
 
     ngOnInit() {
@@ -94,6 +177,7 @@ export class ChildComponent implements OnInit {
             this.todo2 = todoItems;
         })
     }
+
 
     sayHello = () => {
         // this.name = 'hello world';
@@ -110,6 +194,10 @@ export class ChildComponent implements OnInit {
 
     changeTheText = (event) => {
         this.name = event.target.value;
+    }
+
+    passToParent = () => {
+        this.buttonClicked.emit('hello listeners');
     }
 
 }

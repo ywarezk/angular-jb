@@ -273,6 +273,159 @@
           }
         }
       }
+    },
+    "rxjs-tutorial": {
+      "projectType": "library",
+      "root": "projects/rxjs-tutorial",
+      "sourceRoot": "projects/rxjs-tutorial/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rxjs-tutorial/tsconfig.lib.json",
+            "project": "projects/rxjs-tutorial/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rxjs-tutorial/src/test.ts",
+            "tsConfig": "projects/rxjs-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/rxjs-tutorial/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rxjs-tutorial/tsconfig.lib.json",
+              "projects/rxjs-tutorial/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ajax-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ajax-example",
+      "sourceRoot": "projects/ajax-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ajax-example",
+            "index": "projects/ajax-example/src/index.html",
+            "main": "projects/ajax-example/src/main.ts",
+            "polyfills": "projects/ajax-example/src/polyfills.ts",
+            "tsConfig": "projects/ajax-example/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ajax-example/src/favicon.ico",
+              "projects/ajax-example/src/assets"
+            ],
+            "styles": [
+              "projects/ajax-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ajax-example/src/environments/environment.ts",
+                  "with": "projects/ajax-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ajax-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ajax-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ajax-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ajax-example/src/test.ts",
+            "polyfills": "projects/ajax-example/src/polyfills.ts",
+            "tsConfig": "projects/ajax-example/tsconfig.spec.json",
+            "karmaConfig": "projects/ajax-example/karma.conf.js",
+            "assets": [
+              "projects/ajax-example/src/favicon.ico",
+              "projects/ajax-example/src/assets"
+            ],
+            "styles": [
+              "projects/ajax-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ajax-example/tsconfig.app.json",
+              "projects/ajax-example/tsconfig.spec.json",
+              "projects/ajax-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ajax-example/e2e/protractor.conf.js",
+            "devServerTarget": "ajax-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ajax-example:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "ex"
 }

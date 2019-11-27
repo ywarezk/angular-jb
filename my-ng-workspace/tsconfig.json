@@ -1,35 +1,41 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2015",
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "lib": [
-            "es2018",
-            "dom"
-        ],
-        "paths": {
-            "auth": [
-                "projects/auth/src/public-api",
-                "dist/auth"
-            ],
-            "auth/*": [
-                "dist/auth/*"
-            ]
-        }
-    },
-    "angularCompilerOptions": {
-        "fullTemplateTypeCheck": true,
-        "strictInjectionParameters": true
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": false,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "auth": [
+        "projects/auth/src/public-api",
+        "dist/auth"
+      ],
+      "auth/*": [
+        "dist/auth/*"
+      ],
+      "rxjs-tutorial": [
+        "dist/rxjs-tutorial"
+      ],
+      "rxjs-tutorial/*": [
+        "dist/rxjs-tutorial/*"
+      ]
     }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }
