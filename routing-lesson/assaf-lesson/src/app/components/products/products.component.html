@@ -1,0 +1,22 @@
+
+
+
+
+
+
+<h4>Add new Product</h4>
+
+<form (submit)="addProduct()" #myForm="ngForm">
+
+    <input #myName="ngModel" required pattern="^[A-Z].*$" type="text" placeholder="Name..." [(ngModel)]="product.name" name="name">
+    <span *ngIf="myName.errors?.required && myName.touched">Missing name</span>
+    <span *ngIf="myName.errors?.pattern && myName.touched">Name must be Capitalized</span>
+    <br>
+
+    <input #myPrice="ngModel"  required type="number" placeholder="Price..." [(ngModel)]="product.price" name="price">
+    <span *ngIf="myPrice.invalid && myPrice.touched">Missing price</span>
+    <br>
+
+    <button [disabled]="myForm.form.invalid">Add</button>
+
+</form>

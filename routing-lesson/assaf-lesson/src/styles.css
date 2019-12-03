@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: x-large;
+    text-align: center;
+    background-color: lightblue;
+}
+
+a {
+    color: blue;
+}
+

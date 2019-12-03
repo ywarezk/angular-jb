@@ -1,0 +1,10 @@
+a {
+    display: block; /* Take different lines */
+    margin-top: 20px;
+}
+
+.active { /* שם מומצא */
+    color: magenta;
+    font-weight: bold;
+    font-style: Arial;
+}

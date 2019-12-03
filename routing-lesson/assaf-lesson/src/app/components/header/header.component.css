@@ -1,0 +1,12 @@
+div {
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+
+    /* Vertical Center: */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
