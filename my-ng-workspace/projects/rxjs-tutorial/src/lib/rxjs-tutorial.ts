@@ -1,4 +1,5 @@
-import {Observable, Subscription, Subject} from 'rxjs';
+import {Observable, Subscription, Subject, interval, BehaviorSubject} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
 
 // Promise VS Observable
 // i can call next many times
@@ -72,6 +73,47 @@ setInterval(() => {
     interval2Subject.next('hello');
 }, 1000);
 
-interval2Subject.subscribe((msg: string) => {
+// interval2Subject.complete();
+// interval2Subject.error(new Error());
+
+const subscription : Subscription = interval2Subject.subscribe((msg: string) => {
 
 })
+
+// subscription.unsubscribe();
+
+const myInterval2 : Observable<number> = interval(1000);
+
+myInterval2.pipe(
+    filter((count: number) => {
+        return count % 2 === 0;
+    }),
+    map((even : number) => {
+        return 'hello world' + even;
+    })
+).subscribe((helloWorld : string) => {
+
+})
+
+myInterval2.subscribe((count: number) => {
+
+})
+
+
+const myBehaviourSubject : BehaviorSubject<string> = new BehaviorSubject('initial');
+
+// initial
+myBehaviourSubject.value
+
+myBehaviourSubject.subscribe((msg: string) => {
+    console.log(msg)
+});
+
+
+myBehaviourSubject.next('hello');
+
+
+
+//  hello
+myBehaviourSubject.value
+

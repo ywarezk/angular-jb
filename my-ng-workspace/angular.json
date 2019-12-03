@@ -426,6 +426,242 @@
           }
         }
       }
+    },
+    "search-problem": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/search-problem",
+      "sourceRoot": "projects/search-problem/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/search-problem",
+            "index": "projects/search-problem/src/index.html",
+            "main": "projects/search-problem/src/main.ts",
+            "polyfills": "projects/search-problem/src/polyfills.ts",
+            "tsConfig": "projects/search-problem/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/search-problem/src/favicon.ico",
+              "projects/search-problem/src/assets"
+            ],
+            "styles": [
+              "projects/search-problem/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/search-problem/src/environments/environment.ts",
+                  "with": "projects/search-problem/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "search-problem:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "search-problem:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "search-problem:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/search-problem/src/test.ts",
+            "polyfills": "projects/search-problem/src/polyfills.ts",
+            "tsConfig": "projects/search-problem/tsconfig.spec.json",
+            "karmaConfig": "projects/search-problem/karma.conf.js",
+            "assets": [
+              "projects/search-problem/src/favicon.ico",
+              "projects/search-problem/src/assets"
+            ],
+            "styles": [
+              "projects/search-problem/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/search-problem/tsconfig.app.json",
+              "projects/search-problem/tsconfig.spec.json",
+              "projects/search-problem/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/search-problem/e2e/protractor.conf.js",
+            "devServerTarget": "search-problem:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "search-problem:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "reactive-forms-tutorial": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/reactive-forms-tutorial",
+      "sourceRoot": "projects/reactive-forms-tutorial/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/reactive-forms-tutorial",
+            "index": "projects/reactive-forms-tutorial/src/index.html",
+            "main": "projects/reactive-forms-tutorial/src/main.ts",
+            "polyfills": "projects/reactive-forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/reactive-forms-tutorial/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/reactive-forms-tutorial/src/favicon.ico",
+              "projects/reactive-forms-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-forms-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/reactive-forms-tutorial/src/environments/environment.ts",
+                  "with": "projects/reactive-forms-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "reactive-forms-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "reactive-forms-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "reactive-forms-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reactive-forms-tutorial/src/test.ts",
+            "polyfills": "projects/reactive-forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/reactive-forms-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/reactive-forms-tutorial/karma.conf.js",
+            "assets": [
+              "projects/reactive-forms-tutorial/src/favicon.ico",
+              "projects/reactive-forms-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-forms-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reactive-forms-tutorial/tsconfig.app.json",
+              "projects/reactive-forms-tutorial/tsconfig.spec.json",
+              "projects/reactive-forms-tutorial/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/reactive-forms-tutorial/e2e/protractor.conf.js",
+            "devServerTarget": "reactive-forms-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reactive-forms-tutorial:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "ex"
 }
