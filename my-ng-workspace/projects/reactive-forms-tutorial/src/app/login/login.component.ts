@@ -67,8 +67,8 @@ export class LoginComponent implements OnInit {
         // throw new Error('something happened');
         // {email: '...', password: '...'}
         console.log(loginForm.value);
-        console.log(this.emailFormControl.value);
-        console.log(this.emailFormControl.invalid)
+        // console.log(this.emailFormControl.value);
+        // console.log(this.emailFormControl.invalid)
     }
 
 }
